@@ -43,6 +43,7 @@ function llenarFiltroCategorias(productos) {
     });
 }
 
+
 function actualizarDashboard(productos) {
     calcularKPIs(productos);
     graficarPrecioPorCategoria(productos);
@@ -97,7 +98,7 @@ function calcularKPIs(productos) {
     document.querySelector("#kpi-categoria-top").textContent = categoriaTop;
     document.querySelector("#kpi-rating-promedio").textContent = ratingPromedio.toFixed(1) + " ⭐";
 
-     graficarPrecioPorCategoria(productos);
+
 }
 
 function graficarPrecioPorCategoria(productos) {
@@ -118,17 +119,35 @@ function graficarPrecioPorCategoria(productos) {
         return sumaPorCategoria[categoria] / cantidadPorCategoria[categoria];
     });
 
-    chartInstancia = new Chart(document.querySelector("#grafico-categorias"), {
-        type: "bar",
-        data: {
-            labels: categorias,
-            datasets: [{
-                label: "Precio promedio ($)",
-                data: promedios,
-                backgroundColor: "#22d3ee"
-            }]
+chartInstancia = new Chart(document.querySelector("#grafico-categorias"), {
+    type: "bar",
+    data: {
+        labels: categorias,
+        datasets: [{
+            label: "Precio promedio ($)",
+            data: promedios,
+            backgroundColor: "#22d3ee"
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                position: "top"
+            }
+        },
+        scales: {
+            x: {
+                ticks: {
+                    maxRotation: 0,
+                    minRotation: 0,
+                    autoSkip: false
+                }
+            }
         }
-    });
+    }
+}); 
 }
 
 traerProductos();
