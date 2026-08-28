@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Análisis de Catálogo</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="dashboard-header">
+        <h1>Panel de Análisis de Catálogo</h1>
+        <p>Datos en tiempo real desde Fake Store API</p>
+    </header>
+
+    <main class="dashboard-container">
+        <div class="kpis">
+            <div class="kpi-card">
+                <span class="kpi-numero" id="kpi-total">-</span>
+                <span class="kpi-label">Productos totales</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-numero" id="kpi-precio-promedio">-</span>
+                <span class="kpi-label">Precio promedio</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-numero" id="kpi-categoria-top">-</span>
+                <span class="kpi-label">Categoría con más productos</span>
+            </div>
+            <div class="kpi-card">
+                <span class="kpi-numero" id="kpi-rating-promedio">-</span>
+                <span class="kpi-label">Rating promedio</span>
+            </div>
+        </div>
+
+        <div class="panel-card">
+            <canvas id="grafico-categorias"></canvas>
+        </div>
+
+        <div class="panel-card">
+            <div class="filtros-categoria" id="filtro-categoria"></div>
+
+            <div class="tabla-wrapper">
+                <table id="tabla-productos">
+                    <thead>
+                        <tr><th>Producto</th><th>Categoría</th><th>Precio</th><th>Rating</th></tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
